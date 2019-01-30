@@ -2,20 +2,15 @@ import React from 'react';
 
 class Dashboard extends React.Component {
 	strickHandler = () => {
-		// console.log('strick!');
 		this.props.increaseStricks();
 	};
-
 	ballHandler = () => {
-		// console.log('ball!');
 		this.props.increaseBalls();
 	};
 	foulHandler = () => {
-		// console.log('foul!');
-		this.props.increaseStricks();
+		if (this.props.stricks !== 2) this.props.increaseStricks();
 	};
 	resetCountHandler = () => {
-		// console.log('Hit!');
 		this.props.resetCount();
 	};
 

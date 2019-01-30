@@ -9,33 +9,32 @@ class App extends Component {
 	};
 
 	increaseBalls = () => {
-		console.log('Ball!');
 		let count = this.state.balls;
-		if (count !== 3) count++;
-		else count = 0;
-		this.setState({
-			balls: count
-		});
+		if (count !== 3) {
+			count++;
+			this.setState({
+				balls: count
+			});
+		} else this.resetCount();
 	};
 
 	increaseStricks = () => {
-		console.log('strick!');
 		let count = this.state.stricks;
-		if (count !== 2) count++;
-		else count = 0;
-		this.setState({
-			stricks: count
-		});
+		if (count !== 2) {
+			count++;
+			this.setState({
+				stricks: count
+			});
+		} else this.resetCount();
 	};
 
 	resetCount = () => {
-		console.log('Reset');
 		this.setState({balls: 0, stricks: 0});
 	};
 
 	render() {
 		return (
-			<div className='App'>
+			<div className='app' data-testid='app'>
 				<Display
 					balls={this.state.balls}
 					stricks={this.state.stricks}
@@ -44,6 +43,7 @@ class App extends Component {
 					increaseBalls={this.increaseBalls}
 					increaseStricks={this.increaseStricks}
 					resetCount={this.resetCount}
+					stricks={this.state.stricks}
 				/>
 			</div>
 		);
